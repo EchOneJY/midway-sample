@@ -8,10 +8,24 @@ export interface ResOp {
 }
 
 /**
+ * @description User-Login parameters
+ */
+export interface LoginInfoType {
+  username: string;
+  password: string;
+}
+
+export interface LoginReturnInfoType {
+  userId: number;
+  username: string;
+  token: string;
+}
+
+/**
  * @description User-Service-Get parameters
  */
 export interface GetUserType {
-  uid: number;
+  id: number;
 }
 
 /**
@@ -21,4 +35,7 @@ export interface CreateUserType {
   username: string;
   email?: string;
   phone?: number;
+  password?: string;
+  headImg?: string;
+  remark?: string;
 }

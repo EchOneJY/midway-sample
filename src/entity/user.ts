@@ -1,32 +1,35 @@
 // entity/user.ts
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
-@Entity('user')
+@Entity('user11')
 export class User {
   @PrimaryGeneratedColumn()
-  uid: string;
+  id: number;
 
-  @Column({ length: 45, nullable: false, unique: true })
+  @Column({ name: 'username', length: 45, nullable: false, unique: true })
   username: string;
 
   @Column({ length: 45 })
   password: string;
 
-  @Column({ name: 'head_img' })
-  headImg: string;
+  @Column({ length: 45 })
+  remark: string;
 
   @Column()
   phone: number;
 
   @Column()
-  remark: string;
-
-  @Column()
   email: string;
 
-  @Column({ name: 'last_login_time' })
-  lastLoginTime: Date;
+  @CreateDateColumn({ name: 'create_time' })
+  createTime: Date;
 
-  @Column({ name: 'last_login_ip', length: 45 })
-  lastLoginIp: string;
+  @UpdateDateColumn({ name: 'last_login_time' })
+  lastLoginTime: Date;
 }
